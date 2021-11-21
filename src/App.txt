@@ -1,0 +1,69 @@
+import {BrouserRouter as Router, Switch, Route} from 'react-router-dom'
+import './styles/style.css';
+
+function App() {
+  return (
+    <div className="bg-yellow-400">
+      <header className="App-header">
+          </header>
+        <p>
+          Edit <code>ROBERT</code> HOLA MUNDO CON TAILWIND
+        </p>
+   
+
+    </div>
+  );
+}
+
+export default App;
+
+
+
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import AuthLayaut from './Layouts/AuthLayout';
+import PrivateLayaut from './Layouts/PrivateLayout';
+import PublicLayout from './Layouts/PublicLayout';
+
+import Admin from './Pages/Admin';
+import Index from './Pages/Index';
+import Login from './Pages/Login';
+import Registro from './Pages/Registro';
+import './styles/style.css';
+
+function App() {
+    return (
+        <div>
+            <h2 className="bg-yellow-400"> INDEX APP</h2>
+        <Router>
+            <Switch>
+                    <Route path='/Login'>
+                        <AuthLayaut> 
+                            <Login />
+                            </AuthLayaut>
+                    </Route>
+
+                <Route path='/Registro'>
+                    <AuthLayaut> 
+                        <Registro />
+                    </AuthLayaut>
+                    </Route>
+
+                    <Route path='/Admin'>
+                        <PrivateLayaut>
+                            <Admin />
+                            </PrivateLayaut>
+                    </Route>
+ 
+               <Route path='/Index'>
+    <PublicLayout>
+                            <Index />
+                            </PublicLayout>
+
+               </Route>
+            </Switch>
+        </Router>
+        </div>
+  );
+}
+
+export default App;
